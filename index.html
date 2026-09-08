@@ -619,6 +619,21 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
       n.style.transform = "translateY(16px)";
       io.observe(n);
     });
+
+    // 안전장치 — 폰트 로딩으로 위치가 밀리거나 관찰자 콜백이 오지 않는 경우가 있습니다.
+    // 화면 안에 들어와 있는데도 숨겨진 채 남은 요소는 강제로 드러냅니다.
+    // (내용이 영영 안 보이는 것보다 연출을 한 번 건너뛰는 편이 낫습니다.)
+    function rescue(){
+      nodes.forEach(function(n){
+        if(n.style.opacity !== "0") return;
+        if(n.getBoundingClientRect().top >= window.innerHeight) return;
+        n.style.opacity = "1";
+        n.style.transform = "none";
+        io.unobserve(n);
+      });
+    }
+    window.addEventListener("load", function(){ setTimeout(rescue, 300); });
+    setTimeout(rescue, 2500);
   }
 
   /* ---------- 4. 네비 브랜드 — GLEN ↔ OPEN TO WORK 를 decrypt 연출로 교차 ---------- */
