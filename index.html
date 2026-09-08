@@ -89,7 +89,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   flex:0 0 auto;transition:color .3s ease;
 }
 /* GLEN(4자) ↔ OPEN TO WORK(12자) 교차 시 네비가 흔들리지 않도록 자리를 미리 잡아둠 */
-.nav-brand span{display:inline-block;min-width:112px;}
+.nav-brand > span{display:inline-block;min-width:112px;}
 .nav-links{display:flex;gap:22px;}
 .nav-links a{
   font-size:14px;color:var(--text-2);text-decoration:none;white-space:nowrap;
@@ -271,7 +271,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 @media (max-width:480px){
   .nav-links{gap:15px;}
   .nav-links a{font-size:13px;}
-  .nav-brand span{min-width:104px;}
+  .nav-brand > span{min-width:104px;}
   .nav-brand{letter-spacing:.06em;}
 }
 
