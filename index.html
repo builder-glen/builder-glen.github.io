@@ -255,8 +255,16 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 
 /* ---------- 반응형 ---------- */
 @media (max-width:760px){
-  .hero{grid-template-columns:minmax(0,1fr);row-gap:32px;}
-  .hero-links{justify-content:flex-start;}
+  /* 아이콘은 우측 상단 유지. 대신 제목이 쓸 폭이 줄어 3줄이 되므로,
+     넓은 화면 기준이던 상단 여백(82px)을 줄여 히어로 전체 높이를 맞춥니다. */
+  .hero{
+    grid-template-columns:minmax(0,1fr) auto;
+    column-gap:16px;row-gap:0;
+    padding:44px 0 40px;
+  }
+  .hero-links{justify-content:flex-end;gap:10px;padding-top:2px;}
+  .icon-tile{width:40px;height:40px;}
+  .icon-chip{font-size:9px;padding:2px 5px;}
 }
 @media (max-width:680px){
   .proj{grid-template-columns:minmax(0,1fr);gap:12px;padding:22px 0;}
@@ -523,7 +531,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
         var el = document.createElement("span");
         el.dataset.ch = ch;
         el.textContent = ch;
-        if(ch === " ") el.style.whiteSpace = "pre";
+        // pre 는 이 자리에서 줄바꿈을 막아 좁은 화면에서 제목이 옆으로 삐져나갑니다.
+        // pre-wrap 이어야 공백을 유지하면서도 줄바꿈이 가능합니다.
+        if(ch === " ") el.style.whiteSpace = "pre-wrap";
         n.appendChild(el);
         cells.push(el);
       });
