@@ -261,6 +261,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 @media (max-width:680px){
   .proj{grid-template-columns:minmax(0,1fr);gap:12px;padding:22px 0;}
   .proj:first-of-type{padding:8px 0 22px;}
+  /* 문장마다 넣은 줄바꿈은 넓은 화면 기준입니다. 좁은 화면에서는 그 줄이 또 접혀
+     문단이 들쭉날쭉해지므로, 줄바꿈을 풀어 자연스럽게 흐르게 합니다. */
+  .about br,
+  .proj-body br{display:none;}
+  .about p{font-size:16px;}
 }
 @media (max-width:640px){
   .nav-in{padding:0 18px;}
