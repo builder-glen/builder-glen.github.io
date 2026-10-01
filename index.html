@@ -187,6 +187,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .proj-body p{margin:0 0 10px;color:var(--text-2);font-size:15.5px;}
 .proj-body p:last-child{margin-bottom:0;}
 .proj-body b{color:var(--text);font-weight:500;}
+/* 프로젝트 소개 영상 — 본문 아래 작게 */
+.proj-video{
+  display:block;width:100%;max-width:440px;aspect-ratio:16/9;margin-top:16px;
+  border:1px solid var(--rule-soft);border-radius:6px;background:var(--tile);
+}
 
 /* ---------- 커리어 (git log 그래프) ---------- */
 .career .sec-head{margin-bottom:8px;}
@@ -370,6 +375,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
         빈 자리가 있어도 알 수 없고 발품을 팔거나 일일이 SNS에 검색을 해보지 않으면 몰라요.<br>
         <b>"지금 빈자리 있어요"를 손님에게 직접 알리고, 카페의 정보를 보여주는</b> 메타서비스 입니다.</p>
         <p>토스 앱 &gt; 미니앱 탭 &gt; 어디앉지에서 만나볼 수 있어요!</p>
+        <video class="proj-video" src="assets/cafefinder-launch.mp4" poster="assets/cafefinder-launch-poster.jpg"
+          autoplay muted loop playsinline preload="metadata" aria-label="어디앉지 론칭 영상"></video>
       </div>
     </article>
 
